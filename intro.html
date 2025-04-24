@@ -142,9 +142,12 @@
                   display: none !important;
                 }
 
-                body > .skiptranslate {
-                  display: none !important;
-                }
+                /* 不隐藏 .skiptranslate 容器本体，只隐藏横幅 */
+.goog-te-banner-frame.skiptranslate {
+  display: none !important;
+  height: 0 !important;
+}
+
 
             </style>
         </head>
