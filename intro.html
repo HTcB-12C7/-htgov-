@@ -248,8 +248,13 @@ window.addEventListener('load', function () {
     });
   }
 });
-</script>
 
+<script>
+  function toggleAccountInfo() {
+    const popup = document.getElementById('accountPopup');
+    popup.style.display = popup.style.display === 'none' ? 'block' : 'none';
+  }
+</script>
 
         </body>
         </html>
