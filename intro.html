@@ -243,18 +243,27 @@
       layout: google.translate.TranslateElement.InlineLayout.SIMPLE
     }, 'google_translate_element');
 
-    // 💡 放这里确保等加载完后再绑定
-    setTimeout(() => {
-      const toggle = document.getElementById("lang-toggle");
-      const box = document.getElementById("google_translate_element");
-      if (toggle && box) {
-        toggle.addEventListener("click", () => {
-          box.style.display = box.style.display === "none" ? "block" : "none";
-        });
-      }
-    }, 500); // 延迟 0.5 秒绑定，确保控件渲染完成
+    // ✅ 绑定按钮事件
+    const toggle = document.getElementById("lang-toggle");
+    const box = document.getElementById("google_translate_element");
+    if (toggle && box) {
+      toggle.addEventListener("click", () => {
+        box.style.display = box.style.display === "none" ? "block" : "none";
+      });
+    }
   }
 </script>
+
+<!-- ✅ 只保留一行加载脚本，不要再写 window.addEventListener 了 -->
+<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+<script>
+  function toggleAccountInfo() {
+    const popup = document.getElementById('accountPopup');
+    popup.style.display = popup.style.display === 'none' ? 'block' : 'none';
+  }
+</script>
+
                 
 <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
