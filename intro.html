@@ -133,6 +133,19 @@
                  white-space: nowrap;
                 }
 
+                /* 去除顶部 Google 翻译横幅 */
+                body {
+                  top: 0px !important;
+                }
+
+                .goog-te-banner-frame.skiptranslate {
+                  display: none !important;
+                }
+
+                body > .skiptranslate {
+                  display: none !important;
+                }
+
             </style>
         </head>
         <body>
