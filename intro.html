@@ -242,15 +242,6 @@
       includedLanguages: 'zh-CN,en,ja,ko,fr,es,de,ru',
       layout: google.translate.TranslateElement.InlineLayout.SIMPLE
     }, 'google_translate_element');
-
-    // ✅ 绑定按钮事件
-    const toggle = document.getElementById("lang-toggle");
-    const box = document.getElementById("google_translate_element");
-    if (toggle && box) {
-      toggle.addEventListener("click", () => {
-        box.style.display = box.style.display === "none" ? "block" : "none";
-      });
-    }
   }
 </script>
 
