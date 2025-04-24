@@ -1,5 +1,259 @@
 export default {
     async fetch(request) {
+        const url = new URL(request.url);
+        // 判断是哪个路径
+        if (url.pathname === "/intro.html") {
+            return new Response(`<!DOCTYPE html>
+        <html lang="zh-CN">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>黑铁工作室简介</title>
+            <style>
+                body {
+                    margin: 0;
+                    padding: 0;
+                    font-family: Arial, sans-serif;
+                    background-color: #3e2723; 
+                    display: flex;
+                    height: 100vh;
+                    color: #e0e0e0;
+                    flex-direction: column;
+                }
+                .header {
+                    position: relative;
+                    width: 100%;
+                    height: 60px;
+                    background: black;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: 20px;
+                    font-weight: bold;
+                    color: white;
+                    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+                }
+                .header span {
+                    color: red;
+                }
+                .logo {
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    height: 60px;
+                    width: 60px;
+                    object-fit: cover;
+                    cursor: pointer;
+                    z-index: 10;
+                }
+                .main-container {
+                    display: flex;
+                    flex-grow: 1;
+                    width: 100%;
+                }
+                .sidebar {
+                    width: 200px;
+                    background: linear-gradient(45deg, #5d4037, #8d6e63);
+                    padding: 20px;
+                    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+                    display: flex;
+                    flex-direction: column;
+                }
+                .sidebar h3 {
+                    color: gold;
+                    text-align: center;
+                    border-bottom: 2px solid gold;
+                    padding-bottom: 10px;
+                }
+                .sidebar ul {
+                    list-style: none;
+                    padding: 0;
+                }
+                .sidebar ul li {
+                    margin: 10px 0;
+                }
+                .sidebar ul li a {
+                    text-decoration: none;
+                    color: #fff;
+                    display: block;
+                    padding: 10px;
+                    background: #6d4c41;
+                    border-radius: 5px;
+                    text-align: center;
+                    transition: 0.3s;
+                }
+                .sidebar ul li a:hover {
+                    background: #8d6e63;
+                }
+                .content {
+                    flex-grow: 1;
+                    display: flex;
+                    justify-content: center;
+                    align-items: flex-start;
+                    padding: 40px;
+                }
+                .container {
+                    background: rgba(0, 0, 0, 0.6);
+                    padding: 30px 40px;
+                    border-radius: 10px;
+                    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+                    max-width: 800px;
+                }
+                h2 {
+                    font-size: 2em;
+                    margin-bottom: 20px;
+                    border-bottom: 2px solid gold;
+                    padding-bottom: 10px;
+                }
+                p, li {
+                    line-height: 1.8;
+                }
+
+                /* 美化 Google Translate */
+                #google_translate_element {
+                font-size: 0;
+                z-index: 9999;
+                }
+
+                /* 美化下拉框：黑底蓝字 */
+                .goog-te-combo {
+                padding: 5px 10px;
+                font-size: 14px;
+                background-color: #000000 !important;  /* 黑色背景 */
+                color: #03a9f4 !important;              /* 蓝色字体 */
+                border: 1px solid #03a9f4 !important;
+                border-radius: 5px;
+                cursor: pointer;
+                }
+
+                /* 去掉 Google logo 和提示文字 */
+                .goog-logo-link,
+                .goog-te-gadget span {
+                display: none !important;
+                }
+
+                /* 取消聚焦样式 */
+                .goog-te-combo:focus {
+                outline: none;
+                box-shadow: none;
+                }
+
+                /* 完全隐藏顶部的默认翻译横幅 */
+                iframe.goog-te-banner-frame {
+                display: none !important;
+                }
+                body {
+                top: 0px !important;
+                }
+
+                /* 可选隐藏右上角 G 图标 */
+                .goog-te-gadget-icon {
+                display: none !important;
+                }
+
+            </style>
+        </head>
+        <body>
+            <div class="header">
+                <a href="/">
+                    <img class="logo" src="https://raw.githubusercontent.com/HTcB-12C7/htchocolate.github.io/main/DALL%C2%B7E%202025-03-12%2015.26.22%20-%20A%20highly%20realistic%20and%20detailed%20logo%20for%20'Black%20Iron%20Studio'.%20The%20design%20features%20a%20tactical%20and%20metallic%20aesthetic%20with%20a%20military%20theme.%20At%20the%20cent.webp" alt="返回主页">
+                </a>
+                黑铁工作室主页 <span>【灰度开放测试中】</span>
+                
+                <button id="lang-toggle" style="
+                    position: absolute;
+                    top: 10px;
+                    right: 120px;
+                    padding: 5px 10px;
+                    background: black;
+                    color: #03a9f4;
+                    border: 1px solid #03a9f4;
+                    border-radius: 5px;
+                    cursor: pointer;
+                    font-weight: bold;
+                ">🌐 Language</button>
+
+                <div id="google_translate_element" style="
+                    position: absolute;
+                    top: 50px;
+                    right: 10px;
+                    display: none;
+                    background: rgba(0, 0, 0, 0.8);
+                    padding: 8px;
+                    border-radius: 5px;
+                    z-index: 9999;
+                "></div>
+            </div>
+
+            <div class="main-container">
+                <div class="sidebar">
+                    <h3>黑铁工作室</h3>
+                    <ul>
+                        <li><a href="https://htgov.sh-cqxzjxcomputer.workers.dev/">黑铁 VIP</a></li>
+                        <li><a href="https://htcb-12c7.github.io/HT_RedhatHacker_boxsell/">黑铁红帽黑客自学箱</a></li>
+                        <li><a href="https://htcb-12c7.github.io/HT_QRTool/">黑铁二维码工具</a></li>
+                        <li><a href="https://htchocolate.kit.com/6eba531f42">黑铁英格ZOO G</a></li>
+                        <li><a href="https://hpubgmjby.sh-cqxzjxcomputer.workers.dev/">小克力【测试未部署】</a></li>
+                        <li><a href="/intro.html">黑铁工作室简介</a></li>
+                    </ul>
+                </div>
+                <div class="content">
+                    <div class="container">
+                        <h2>黑铁工作室简介</h2>
+                        <p>黑铁工作室（HT Studio）是一个集创意开发、极客技术与独立项目实践为一体的自由团队。我们致力于打造具有实战价值与娱乐性的项目，包括但不限于：</p>
+                        <ul>
+                            <li>红帽 / 白帽黑客工具</li>
+                            <li>EXE 软件 & 网页交互工具</li>
+                            <li>和平精英等游戏辅助、模拟飞行体验</li>
+                            <li>自媒体内容运营、AI 脚本研究</li>
+                        </ul>
+                        <p>我们崇尚自由探索、技术美学和极致细节。欢迎有志者加入，共建黑铁宇宙！</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ✅ 放在 </body> 前 -->
+<script>
+  function googleTranslateElementInit() {
+    new google.translate.TranslateElement({
+      pageLanguage: 'zh-CN',
+      includedLanguages: 'zh-CN,en,ja,ko,fr,es,de,ru',
+      layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+    }, 'google_translate_element');
+
+    // 💡 放这里确保等加载完后再绑定
+    setTimeout(() => {
+      const toggle = document.getElementById("lang-toggle");
+      const box = document.getElementById("google_translate_element");
+      if (toggle && box) {
+        toggle.addEventListener("click", () => {
+          box.style.display = box.style.display === "none" ? "block" : "none";
+        });
+      }
+    }, 500); // 延迟 0.5 秒绑定，确保控件渲染完成
+  }
+</script>
+<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+<script>
+window.addEventListener('load', function () {
+  const toggle = document.getElementById("lang-toggle");
+  const box = document.getElementById("google_translate_element");
+  if (toggle && box) {
+    toggle.addEventListener("click", () => {
+      box.style.display = box.style.display === "none" ? "block" : "none";
+    });
+  }
+});
+</script>
+
+
+        </body>
+        </html>`, {
+                headers: { "Content-Type": "text/html; charset=UTF-8" }
+            });
+        }
+        
         return new Response(`<!DOCTYPE html>
             <html lang="zh-CN">
             <head>
@@ -207,12 +461,12 @@ export default {
                     <div class="sidebar">
                         <h3>黑铁工作室</h3>
                         <ul>
-                            <li><a href="#">黑铁 VIP</a></li>
+                            <li><a href="https://htgov.sh-cqxzjxcomputer.workers.dev/">黑铁 VIP</a></li>
                             <li><a href="https://htcb-12c7.github.io/HT_RedhatHacker_boxsell/">黑铁红帽黑客自学箱</a></li>
                             <li><a href="https://htcb-12c7.github.io/HT_QRTool/">黑铁二维码工具</a></li>
                             <li><a href="https://htchocolate.kit.com/6eba531f42">黑铁英格ZOO G </a></li>
                             <li><a href="https://hpubgmjby.sh-cqxzjxcomputer.workers.dev/">小克力【测试未部署】</a></li>
-                            <li><a href="#">黑铁工作室简介</a></li>
+                            <li><a href="/intro.html">黑铁工作室简介</a></li>
                         </ul>
                     </div>
 
@@ -238,4 +492,4 @@ export default {
             </body>
             </html>`, { headers: { "Content-Type": "text/html; charset=UTF-8" } });
     }
-};
+};  // 8
