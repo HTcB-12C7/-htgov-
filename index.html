@@ -240,42 +240,47 @@
                           <!-- 中间标题 -->
             <div>黑铁工作室主页 <span>【灰度开放测试中】</span></div>
 
-            <!-- 右侧按钮区 -->
-            <div style="
-              display: flex;
-              align-items: center;
-              gap: 10px;
-              position: absolute;
-              right: 10px;
-              top: 10px;
-            ">
+            <!-- Language 按钮 -->
+                <button id="lang-toggle" style="
+                    position: absolute;
+                    top: 10px;
+                    right: 70px;
+                    padding: 8px 16px;
+                    font-size: 16px;           /* 字体大小 */
+                    background: black;
+                    color: #03a9f4;
+                    border: 1px solid #03a9f4;
+                    border-radius: 5px;
+                    cursor: pointer;
+                    font-weight: bold;
+                ">
+                🌐 Language
+                </button>
 
-            <!-- 语言切换按钮 -->
-            <button id="lang-toggle" style="
-                  padding: 6px 12px;
-                  background: black;
-                  color: #03a9f4;
-                  border: 1px solid #03a9f4;
-                  border-radius: 5px;
-                  cursor: pointer;
-                  font-weight: bold;
-                  top: 0px;
-                ">🌐 Language</button>
-
-                <div class="account-toggle" style="position: relative;">
-                  <img src="assets/61892f13-66e7-412f-9881-00ddea29080b.png"
-                       alt="头像"
-                       class="avatar"
-                       onclick="toggleAccountInfo()" />
-      <div class="account-popup" id="accountPopup" style="display: none; position: absolute; top: 45px; right: 0; background: rgba(0,0,0,0.9); padding: 10px 15px; border-radius: 8px; color: white; z-index: 9999; box-shadow: 0 0 10px rgba(0,0,0,0.5);">
-        <div><strong>姓名：</strong>HTc</div>
-        <div><strong>身份证：</strong>HT10001</div>
-        <div><strong>银行卡号：</strong>1530 0089 8607 2871</div>
-        <div><strong>地址：</strong>上海市 徐汇区 川东新区 728弄 黑铁快递柜</div>
-      </div>
-    </div>
-  </div>
-</div>
+                <!-- 头像 + 弹出卡片 -->
+                <div class="account-toggle" style="position: absolute; top: 5px; right: 10px;">
+                  <img
+                    src="assets/61892f13-66e7-412f-9881-00ddea29080b.png"
+                    alt="头像"
+                    style="width: 40px; height: 40px; border-radius: 50%; cursor: pointer;"
+                    onclick="toggleAccountInfo()" />
+                  <div class="account-popup" id="accountPopup" style="
+                    display: none;
+                    position: absolute;
+                    top: 45px;
+                    right: 0;
+                    background: rgba(0,0,0,0.9);
+                    padding: 10px 15px;
+                    border-radius: 8px;
+                    color: white;
+                    z-index: 9999;
+                    box-shadow: 0 0 10px rgba(0,0,0,0.5);">
+                    <div><strong>姓名：</strong>HTc</div>
+                    <div><strong>身份证：</strong>HT10001</div>
+                    <div><strong>银行卡号：</strong>1530 0089 8607 2871</div>
+                    <div><strong>地址：</strong>上海市 徐汇区 川东新区 728弄 黑铁快递柜</div>
+                  </div>
+                </div>
 
                 <!-- 页面主体 -->
                 <div class="main-container">
