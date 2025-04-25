@@ -232,39 +232,40 @@
             </div>
 
           <!-- ✅ Google 语言选择初始化 -->
-<script>
-  function googleTranslateElementInit() {
-    new google.translate.TranslateElement({
-      pageLanguage: 'zh-CN',
-      includedLanguages: 'zh-CN,en,ja,ko,fr,es,de,ru',
-      layout: google.translate.TranslateElement.InlineLayout.SIMPLE
-    }, 'google_translate_element');
-  }
-</script>
+        <script>
+          function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+              pageLanguage: 'zh-CN',
+              includedLanguages: 'zh-CN,en,ja,ko,fr,es,de,ru',
+              layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+            }, 'google_translate_element');
+          }
+        </script>
 
-<!-- ✅ Google 提供的翻译组件脚本（只保留一条） -->
-<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+        <!-- ✅ Google 提供的翻译组件脚本（只保留一条） -->
+        <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
-<!-- ✅ 控制 Language 按钮点击时显示/隐藏语言框 -->
-<script>
-  window.addEventListener('load', function () {
-    const toggle = document.getElementById("lang-toggle");
-    const box = document.getElementById("google_translate_element");
-    if (toggle && box) {
-      toggle.addEventListener("click", () => {
-        box.style.display = box.style.display === "none" ? "block" : "none";
-      });
-    }
-  });
-</script>
+        <!-- ✅ 控制 Language 按钮点击时显示/隐藏语言框 -->
+        <script>
+          window.addEventListener('load', function () {
+            const toggle = document.getElementById("lang-toggle");
+            const box = document.getElementById("google_translate_element");
+            if (toggle && box) {
+              toggle.addEventListener("click", () => {
+                box.style.display = box.style.display === "none" ? "block" : "none";
+              });
+            }
+          });
+        </script>
 
-<!-- ✅ 头像弹出信息卡片逻辑 -->
-<script>
-  function toggleAccountInfo() {
-    const popup = document.getElementById('accountPopup');
-    popup.style.display = popup.style.display === 'none' ? 'block' : 'none';
-  }
-</script>
+        <!-- ✅ 头像弹出信息卡片逻辑 -->
+        <script>
+          function toggleAccountInfo() {
+            const popup = document.getElementById('accountPopup');
+            popup.style.display = popup.style.display === 'none' ? 'block' : 'none';
+          }
+        </script>
 
         </body>
         </html>
+
