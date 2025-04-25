@@ -71,6 +71,38 @@
                         z-index: 10;
                     }
 
+                   <!-- 👤 头像 + 信息卡 -->
+<div class="account-toggle" style="position: absolute; top: 5px; right: 10px;">
+  <img
+    src="assets/61892f13-66e7-412f-9881-00ddea29080b.png"
+    alt="头像"
+    style="width: 40px; height: 40px; border-radius: 50%; cursor: pointer;"
+    onclick="toggleAccountInfo()" />
+  <div class="account-popup" id="accountPopup" style="
+    display: none;
+    position: absolute;
+    top: 45px;
+    right: 0;
+    background: rgba(0,0,0,0.9);
+    padding: 10px 15px;
+    border-radius: 8px;
+    color: white;
+    z-index: 9999;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  ">
+    <div><strong>姓名：</strong>HTc</div>
+    <div><strong>身份证：</strong>HT10001</div>
+    <div><strong>银行卡号：</strong>1530 0089 8607 2871</div>
+    <div><strong>地址：</strong>上海市 徐汇区 川东新区 728弄 黑铁快递柜</div>
+  </div>
+</div>
+
+                    .account-popup div {
+  margin-bottom: 6px;
+  white-space: nowrap; /* 防止自动换行 */
+}
+
+
                     /* 页面布局 */
                     .main-container {
                         display: flex;
@@ -309,6 +341,14 @@
     }
   });
 </script>
+
+<script>
+  function toggleAccountInfo() {
+    const popup = document.getElementById('accountPopup');
+    popup.style.display = popup.style.display === 'none' ? 'block' : 'none';
+  }
+</script>
+
                         
             </body>
             </html>
