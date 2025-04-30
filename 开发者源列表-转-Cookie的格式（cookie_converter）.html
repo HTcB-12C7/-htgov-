@@ -1,0 +1,55 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>Cookie 转换器</title>
+</head>
+<body>
+    <h2>粘贴 Chrome 开发者工具复制的 Cookie 行</h2>
+    <textarea id="input" style="width: 90%; height: 200px;" placeholder="粘贴 DevTools 的 Cookie 表格数据..."></textarea>
+    <br><br>
+    <button onclick="convertCookies()">生成 cookies.txt</button>
+    <br><br>
+    <h3>转换结果：</h3>
+    <textarea id="output" style="width: 90%; height: 200px;" readonly></textarea>
+    <br>
+    <button onclick="download()">下载 cookies.txt</button>
+
+    <script>
+        function convertCookies() {
+            const input = document.getElementById("input").value;
+            const lines = input.split("\n");
+            let result = "# Netscape HTTP Cookie File\n";
+
+            for (let line of lines) {
+                const parts = line.trim().split("\t");
+                if (parts.length < 2) continue;
+
+                let name = parts[0];
+                let value = parts[1];
+                let domain = ".youtube.com";
+                let path = "/";
+                let secure = "FALSE";
+                let expiration = Math.floor(Date.now() / 1000) + 3600 * 24 * 180;
+
+                result += `${domain}\tTRUE\t${path}\t${secure}\t${expiration}\t${name}\t${value}\n`;
+            }
+
+            document.getElementById("output").value = result;
+        }
+
+        function download() {
+            const text = document.getElementById("output").value;
+            const blob = new Blob([text], { type: "text/plain" });
+            const url = URL.createObjectURL(blob);
+            const link = document.createElement("a");
+            link.href = url;
+            link.download = "cookies.txt";
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+    </script>
+</body>
+</html>
