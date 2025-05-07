@@ -13,7 +13,7 @@ body {
     position: relative;
  /* width: 120%; */
     width: 1600px;       /* 改为固定像素值 */
-/* max-width: 100%; */   /* 添加此限制防止溢出 */
+    max-width: 100%;   /* 添加此限制防止溢出 */
     height: 60px;
     background: black;
     display: flex;
