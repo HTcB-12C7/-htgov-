@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>黑铁华夏每日视频 - HTCMVideo</title>
+    <!-- 使用与主页相同的CSS -->
+    <link rel="stylesheet" href="css/htgov.css">
+    <style>
+        /* 视频页面专属样式 */
+        .video-container {
+            padding: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .video-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .video-card {
+            background: rgba(0, 0, 0, 0.6);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s;
+        }
+        
+        .video-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        video {
+            width: 100%;
+            display: block;
+            background: #000;
+        }
+        
+        .video-info {
+            padding: 15px;
+            color: #e0e0e0;
+        }
+        
+        .video-title {
+            color: gold;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+        
+        .video-desc {
+            font-size: 14px;
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+    <!-- 复用主页的顶部导航 -->
+    <header class="header">
+        <img class="logo" src="images/logo.png" alt="Logo">
+        <h1>黑铁华夏每日视频 - HTCMVideo</h1>
+        <button id="lang-toggle">EN</button>
+        <div class="account-toggle">
+            <img src="images/avatar.png" alt="用户头像">
+        </div>
+    </header>
+
+    <div class="main-container">
+        <!-- 复用主页的侧边栏 -->
+        <div class="sidebar">
+            <h3>视频分类</h3>
+            <ul>
+                <li><a href="#">全部视频</a></li>
+                <li><a href="#">环球系列</a></li>
+                <li><a href="#">HPJB M【N/J】</a></li>
+                <li><a href="#">存档记录</a></li>
+            </ul>
+        </div>
+
+        <!-- 视频内容区 -->
+        <div class="content">
+            <div class="video-container">
+                <h2 style="color: gold; border-bottom: 2px solid gold; padding-bottom: 10px;">
+                    最新视频
+                </h2>
+                
+                <div class="video-gallery">
+                    <!-- 视频卡片1 -->
+                    <div class="video-card">
+                        <video controls poster="images/video-thumb1.jpg">
+                            <source src="videos/demo1.mp4" type="video/mp4">
+                            您的浏览器不支持视频播放
+                        </video>
+                        <div class="video-info">
+                            <h3 class="video-title">Python入门教程</h3>
+                            <p class="video-desc">本视频讲解Python基础语法，适合零基础学习者。</p>
+                        </div>
+                    </div>
+                    
+                    <!-- 视频卡片2 -->
+                    <div class="video-card">
+                        <video controls poster="images/video-thumb2.jpg">
+                            <source src="videos/demo2.mp4" type="video/mp4">
+                            您的浏览器不支持视频播放
+                        </video>
+                        <div class="video-info">
+                            <h3 class="video-title">产品功能演示</h3>
+                            <p class="video-desc">最新版本的核心功能演示与使用技巧。</p>
+                        </div>
+                    </div>
+                    
+                    <!-- 更多视频... -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 复用主页的JS -->
+    <script src="script.js"></script>
+</body>
+</html>
