@@ -138,9 +138,14 @@ function updateTime() {
 
   if (region === 'china') {
     displayTime = new Date(now.toLocaleString("en-US", { timeZone: "Asia/Shanghai" }));
-  } else {
+  } 
+  else if (region === 'usa') {
     displayTime = new Date(now.toLocaleString("en-US", { timeZone: "America/Los_Angeles" }));
   }
+  else if (region === 'turkey') {
+  displayTime = new Date(now.toLocaleString("en-US", { timeZone: "Europe/Istanbul" }));
+}
+
 
   const hh = displayTime.getHours().toString().padStart(2, '0');
   const mm = displayTime.getMinutes().toString().padStart(2, '0');
