@@ -30,6 +30,7 @@
       background: radial-gradient(circle at center, #ffeb3b 10%, #f57f17 70%, #3e2723 100%);
       border-radius: 50%;
       box-shadow: 0 0 20px #ff9800;
+
     }
     .shadow {
       position: absolute;
@@ -50,6 +51,22 @@
       top: 55px;
       left: 55px;
     }
+
+.dial {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 120px;
+  height: 120px;
+  /* z-index: 2; */
+  pointer-events: none;
+
+  /* 你可以修改这里来移动数字刻度的位置 */
+  transform: translate(39px, 39px);
+
+
+}
+
     .dial span {
       position: absolute;
       width: 24px;
@@ -60,7 +77,7 @@
       font-size: 12px;
       top: 50%;
       left: 50%;
-      transform: rotate(calc(var(--i) * 30deg)) translate(-60%, -64px) rotate(calc(var(--i) * -30deg));
+      transform: rotate(calc(var(--i) * 30deg)) translateY(-54px) rotate(calc(var(--i) * -30deg));
       transform-origin: center;
     }
     .clock-text {
@@ -95,18 +112,23 @@
 <body>
 <div class="calendar-wrapper">
   <div class="time-display">
-    <div class="sun-compass">
-      <div class="shadow" id="shadow-hand"></div>
-      <div class="center-dot"></div>
-      <div class="dial">
-        <span style="--i:1">1</span><span style="--i:2">2</span>
-        <span style="--i:3">3</span><span style="--i:4">4</span>
-        <span style="--i:5">5</span><span style="--i:6">6</span>
-        <span style="--i:7">7</span><span style="--i:8">8</span>
-        <span style="--i:9">9</span><span style="--i:10">10</span>
-        <span style="--i:11">11</span><span style="--i:12">12</span>
-      </div>
-    </div>
+
+<!-- 用一个 dial-wrapper 来包住 sun-compass 和独立 dial -->
+<div class="dial-wrapper">
+  <div class="sun-compass">
+    <div class="shadow" id="shadow-hand"></div>
+    <div class="center-dot"></div>
+  </div>
+  <div class="dial">
+    <span style="--i:1">1</span><span style="--i:2">2</span>
+    <span style="--i:3">3</span><span style="--i:4">4</span>
+    <span style="--i:5">5</span><span style="--i:6">6</span>
+    <span style="--i:7">7</span><span style="--i:8">8</span>
+    <span style="--i:9">9</span><span style="--i:10">10</span>
+    <span style="--i:11">11</span><span style="--i:12">12</span>
+  </div>
+</div>
+
     <div class="clock-text" id="clock-text">北京时间：00:00:00</div>
     <div class="toggle-buttons">
       <label><input type="radio" name="region" value="china" checked> 中国北京-上海时间</label>
