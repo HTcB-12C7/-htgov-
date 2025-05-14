@@ -151,8 +151,17 @@ function updateTime() {
   const mm = displayTime.getMinutes().toString().padStart(2, '0');
   const ss = displayTime.getSeconds().toString().padStart(2, '0');
 
-  document.getElementById("clock-text").textContent =
-    (region === 'china' ? "北京-上海时间：" : "美西时间：") + `${hh}:${mm}:${ss}`;
+let regionText = "";
+if (region === "china") {
+  regionText = "中国北京-上海时间：";
+} else if (region === "usa") {
+  regionText = "美西时间：";
+} else if (region === "turkey") {
+  regionText = "土耳其时间：";
+}
+
+document.getElementById("clock-text").textContent = regionText + `${hh}:${mm}:${ss}`;
+
 
   const angle = ((hh % 12) * 60 + displayTime.getMinutes()) * 0.5;
   document.getElementById("shadow-hand").style.transform = `rotate(${angle}deg)`;
