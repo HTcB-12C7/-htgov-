@@ -152,7 +152,7 @@ function updateTime() {
   const ss = displayTime.getSeconds().toString().padStart(2, '0');
 
   document.getElementById("clock-text").textContent =
-    (region === 'china' ? "北京-上海时间：" : "美西时间：": "土耳其时间：") + `${hh}:${mm}:${ss}`;
+    (region === 'china' ? "北京-上海时间：" : "美西时间：") + `${hh}:${mm}:${ss}`;
 
   const angle = ((hh % 12) * 60 + displayTime.getMinutes()) * 0.5;
   document.getElementById("shadow-hand").style.transform = `rotate(${angle}deg)`;
