@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>页面标题</title>
+
+  <!-- 引入统一 CSS -->
+  <link rel="stylesheet" href="HTCD/htgov.css" />
+
+  <!-- Google 翻译 -->
+  <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</head>
+<body>
+  <!-- 顶部横幅将由 HTCD/htgov-header.html 注入 -->
+  <div id="header"></div>
+
+  <div class="main-container">
+    <!-- 左侧导航栏将由 HTCD/htgov-sidebar.html 注入 -->
+    <div id="sidebar"></div>
+
+    <!-- 页面实际内容可放这里 -->
+    <div class="content">
+      <div class="container">
+        <h2>这里是 HTgovM 页面正文内容</h2>
+        <p>你可以在此处放入页面主要内容模块。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 引入统一 JavaScript -->
+  <script src="HTCD/htgov.js"></script>
+
+  <!-- 动态注入 header 和 sidebar -->
+  <script>
+    fetch("HTCD/htgov-header.html")
+      .then(res => res.text())
+      .then(html => document.getElementById("header").innerHTML = html);
+
+    fetch("HTCD/htgov-sidebar.html")
+      .then(res => res.text())
+      .then(html => document.getElementById("sidebar").innerHTML = html);
+  </script>
+</body>
+</html>
+
