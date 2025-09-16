@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>视频自动播放测试</title>
+</head>
+<body>
+  <video id="bgm" autoplay loop muted playsinline width="0" height="0" style="display:none">
+    <source src="../assets/365.mp4" type="video/mp4">
+  </video>
+
+  <script>
+    window.addEventListener('click', () => {
+      const bgm = document.getElementById('bgm');
+      if (bgm) {
+        bgm.muted = false;  // 点击后解除静音
+        bgm.play();
+      }
+    }, { once: true });
+  </script>
+</body>
+</html>
